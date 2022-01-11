@@ -6,13 +6,10 @@ The goal of "My Profile" assignment is to give every student an opportunity to b
 Each week, you need to **update README** and describe the new changes you've implemented. Create a **new section** for **each new week**. For example, see below:
 
 ## (Week 1) My First GitHub Commit & Push
-* Created my first personal webpage using whatever HTML I can remember from IS113 (Web Application Development I).
-* Commited and pushed a file to my repository!
+Basic information and links along with a profile picture :)
 
 ## (Week 2) CSS to Beautify My Web Pages
-* Added a new webpage for my resume.
-* Applied CSS I learned in class to my web pages.
+
 
 ## (Week 3) something goes here
-* something
-* something
+
