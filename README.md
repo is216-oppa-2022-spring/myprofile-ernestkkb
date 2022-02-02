@@ -8,8 +8,7 @@ Each week, you need to **update README** and describe the new changes you've imp
 ## (Week 1) My First GitHub Commit & Push
 Basic information and links along with a profile picture :)
 
-## (Week 2) CSS to Beautify My Web Pages
-
-
-## (Week 3) something goes here
+## (Week 3) Styling
+Added more information regarding myself + Bootstrap components: Card, Jumbotron, List Group and Nav
+Will work on styling it more and adding dynamic components next week :)
 
