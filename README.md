@@ -15,3 +15,7 @@ Will work on styling it more and adding dynamic components next week :)
 ## (Week 4 & 5) Adding of JavaScript
 Used Javascript collapse components to allow users to toggle information
 Will work on styling and work on adding more dynamic components next week :)
+
+## (Week 11 & 12) Vue Js!
+Converted application from vanilla javascript to one that is Vue.JS compliant
+Created a few custom components and will work on making it prettier shortly!

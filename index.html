@@ -9,15 +9,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <style>
-    
-    body{
-      background-image: url('https://plainbackground.com/plain1024/fbeab7.png');
-    }
-    
+  <script src="https://unpkg.com/vue@3"></script>
 
-    .fa {
-      color: black;
+  <style>
+    body {
+      background-color: #0D3939;
     }
 
     .nav-link {
@@ -27,107 +23,108 @@
 </head>
 
 <body>
-  <div class="jumbotron text-center" style="margin-bottom: 30px; margin-top: 30px;">
-    <h3 class="display-5">Hi There! Nice to meet you! I am Ernest!</h3>
-  </div>
-  <div class="container-fluid">
-    <div class="row mx-auto">
-      <div class="col-4"></div>
-      <div class="col-4">
-        <div class="card h-100">
-          <img class="card-img-top"
-            src="https://media-exp1.licdn.com/dms/image/C5103AQG19sO5FbnPvQ/profile-displayphoto-shrink_800_800/0/1578842329575?e=1647475200&v=beta&t=wFH8qkhimyDMgg0imzryAzL_FzZE209aYT3oCJLPj-E"
-            alt="Ernest">
-          <div class="card-body">
-            <h5 class="card-title">Ernest Khoo Khim Boon</h5>
-            <p class="card-text"><b>Education</b>: Senior at SMU School of Information Systems</p>
-            <p class="card-text"><b>Hobbies</b>: Listening to music, Jogging & Chill Dranks</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-4"></div>
+  <div id="app">
+    <div class="jumbotron text-center" style="margin-bottom: 30px; margin-top: 30px;">
+      <h3 class="display-5 text-light">Hi There! Nice to meet you! I am Ernest!</h3>
     </div>
-  </div>
-
-  <div class="list-group" style="margin-bottom: 10px; margin-top: 10px;">
-    <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Internship Experiences</h5>
+    <div class="container-fluid">
+      <div class="row mx-auto">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <personal :information = "personal"></personal>
+        </div>
+        <div class="col-4"></div>
       </div>
-      <p class="mb-1">
-      <ul>
-        <li>Full Stack Developer Intern at GIC - (Dec 2021 - Present)</li>
-        <li>Software Engineering Summer Analyst at Goldman Sachs (May 2021 - July 2021)</li>
-        <li>Software Engineering Summer Analyst at Goldman Sachs (June 2020 - July 2020)</li>
-      </ul>
-      </p>
     </div>
-    <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Technologies & Tools</h5>
+
+    <div class="list-group" style="margin-bottom: 10px; margin-top: 10px;">
+
+      <internship-experience :items = "internships"></internship-experience>
+
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Technologies & Tools</h5>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-3">
+            <card :category = "technologies[0]"></card>
+          </div>
+          <div class="col-sm-3">
+            <card :category = "technologies[1]"></card>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-3">
+            <card :category = "technologies[2]"></card>
+          </div>
+
+          <div class="col-sm-3">
+            <card :category = "technologies[2]"></card>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
       </div>
 
-      <div class="row mb-2">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3">
-          <div class="card h-100" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title text-center">Frontend</h5>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-center">React</li>
-                <li class="list-group-item text-center">Redux</li>
-                <li class="list-group-item text-center">TypeScript</li>
-                <li class="list-group-item text-center">HTML5</li>
-                <li class="list-group-item text-center">CSS</li>
-                <li class="list-group-item text-center">JavaScript</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="card h-100" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title text-center">Backend</h5>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-center">Java</li>
-                <li class="list-group-item text-center">Python</li>
-                <li class="list-group-item text-center">PHP</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3"></div>
-      </div>
+      <project-experience :items = "projects"></project-experience>
+      <nav-bar :items="socials"></nav-bar>
+    </div>
 
-      <div class="row mb-2">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3">
-          <div class="card h-100" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title text-center">Tools</h5>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-center">Docker</li>
-                <li class="list-group-item text-center">Git</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            socials: [
+              { link: "https://github.com/ernestkkb", class: ["fa", "fa-github", "nav-link", "active", "fa-3x"] },
+              { link: "https://www.linkedin.com/in/ernest-khoo/", class: ["fa", "fa-linkedin", "nav-link", "fa-3x"] },
+              { link: "https://www.facebook.com/ernest.k.boon/", class: ["fa", "fa-facebook", "nav-link", "fa-3x"] },
+              { link: "mailto:ernestboon97@gmail.com", class: ["fa", "fa-envelope-square", "nav-link", "fa-3x"] }
+            ],
+            projects: [
+              { id: "#mh", name: "Match & Help!", description: "With the persistence of the pandemic, working, learning and even socialisation takes on a digital presence. While this may be a convenient and a great solution to some people, there are many others who lack the appropriate tools and technologies to kick start their virtual journey. In order to solve this gap in the world, I would like to propose: Match & Help! An online platform which aims to bridge people who have products or items to donate (e.g laptop, mobile phones, stationaries) to people who are in need. This way, we can better able address wastage of resources and lift one another through the action of sharing and giving.<b>Tools & Technologies: React, TypeScript, Java SpringBoot, MySQL, GraphQL</b>"},
+              { id: "#tp", name: "Travel Planner", description: "Existing travel planners today are not comprehensive and customisable enough. Our solution is a one-stop online travel platform where users can plan their travel routes according to their preferences.<b>Tools & Technologies: PHP, Python (Flask), JavaScript, Docker, Messaging Technologies (RabbitMQ)</b>"},
+              { id: "#pe", name: "Price Elasticity of Demand Analysis with Shopee", description: "The aim of this project is to build a model that leverages on E-commerce transaction data to perform modeling and analysis related to pricing in E-commerce. The project has two components. Firstly, we built an algorithm that suggests the right product prices, based on various features such as product text descriptions, product category name, previous selling records, history trend, brand name and item condition. Secondly, we visualized how different products' demand changes with regards to the fluctuation of price changes, demonstrating a good understanding of the Price Elasticity of Demand (PED) in the E-commerce market. <b>Tools & Technologies: Python (Regression, Random Forest, XGBoost, K Nearest Neighbours, Lasso, Stochastic Gradient Descent, LightGBM), PHP, Streamlit</b>" }
+            ],
+            internships: [
+              {role: "Full Stack Developer Intern at GIC", duration: "(Dec 2021 - Present)"},
+              {role: "Software Engineering Summer Analyst at Goldman Sachs", duration: "(May 2021 - July 2021)"},
+              {role: "Software Engineering Summer Analyst at Goldman Sachs", duration: "(June 2020 - July 2020)"}
+            ],
+            technologies: [
+              {name: 'Frontend', skills: ['React', 'Redux', 'Vue', 'TypeScript', 'HTML5', 'CSS', 'JavaScript']},
+              {name: 'Backend', skills: ['Java', 'Python', 'PHP']},
+              {name: 'Tools', skills: ['Docker', 'Git']},
+              {name: 'Certifications', skills: ['Oracle (Java Foundations)', 'Amazon Web Services (Cloud Certified Practitioner & Solutions Architect Associate)']},
+            ],
+            personal:{name: "Ernest Khoo Khim Boon", education: "Senior at SMU School of Information Systems", hobbies: "Listening to music, Jogging & Chill Dranks"}
+          }
+        },
+        methods: {
 
-        <div class="col-sm-3">
-          <div class="card h-100" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title text-center">Certifications</h5>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-center">Oracle (Java Foundations)</li>
-                <li class="list-group-item text-center">Amazon Web Services (Cloud Certified Practitioner & Solutions Architect Associate)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3"></div>
-      </div>
+        },
+        computed: {
 
-      <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        }
+      })
+      app.component('nav-bar', {
+        props: ["items"],
+        template: `
+        <ul class="nav justify-content-center">
+          <li v-for = "item in items" class = "nav-item">
+            <a :href = "item.link" :class = "item.class" aria-current="page" target="_blank"></a>
+          </li>
+        </ul>
+        `
+      })
+
+      app.component('project-experience', {
+        props: ['items'],
+        template: `
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">Project Experiences</h5>
         </div>
@@ -135,87 +132,67 @@
         <div class="p-1"></div>
 
         <div id="bottom-button-box">
-
-          <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#mh"
+          <button v-for = "item in items" class="btn btn-dark btn-sm" type="button" data-bs-toggle="collapse" :data-bs-target="item.id"
             aria-expanded="false" aria-controls="collapseExample">
-            <h5>Match & Help!</h5>
-          </button>
-
-          <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#tp"
-            aria-expanded="false" aria-controls="collapseExample">
-            <h5>Travel Planner</h5>
-          </button>
-
-          <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#eda"
-            aria-expanded="false" aria-controls="collapseExample">
-            <h5>Price Elasticity of Demand Analysis with Shopee</h5>
+            <h5>{{item.name}}</h5>
           </button>
         </div>
 
         <div id="bottom-text-box">
-          <div class="collapse" id="mh">
-            <div class="card card-body">
-              With the persistence of the pandemic, working, learning and even socialisation takes on a digital
-              presence. While this may be a convenient and a great solution to some people, there are many others who
-              lack
-              the
-              appropriate tools and technologies to kick start their virtual journey. In order to solve this gap in the
-              world,
-              I would like to propose: Match & Help! An online platform which aims to bridge people who have products or
-              items
-              to donate (e.g laptop, mobile phones, stationaries) to people who are in need. This way, we can better
-              able
-              address wastage of resources and lift one another through the action of sharing and giving.
-              <b>Tools & Technologies: React, TypeScript, Java SpringBoot, MySQL, GraphQL</b>
-            </div>
-          </div>
-
-          <div class="collapse" id="tp">
-
-            <div class="card card-body">
-              Existing travel planners today are not comprehensive and customisable enough. Our solution is a
-              one-stop online travel platform where users can plan their travel routes according to their preferences.
-              <b>Tools & Technologies: PHP, Python (Flask), JavaScript, Docker, Messaging Technologies (RabbitMQ)</b>
-            </div>
-          </div>
-
-          <div class="collapse" id="eda">
-            <div class="card card-body">
-              The aim of this project is to build a model that leverages on E-commerce transaction data to
-              perform modeling and analysis related to pricing in E-commerce. The project has two components. Firstly,
-              we
-              built an algorithm that suggests the right product prices, based on various features such as product text
-              descriptions, product category name, previous selling records, history trend, brand name and item
-              condition.
-              Secondly, we visualized how different products' demand changes with regards to the fluctuation of price
-              changes, demonstrating a good understanding of the Price Elasticity of Demand (PED) in the E-commerce
-              market.
-              <b>Tools & Technologies: Python (Regression, Random Forest, XGBoost, K Nearest Neighbours, Lasso,
-                Stochastic Gradient Descent, LightGBM), PHP, Streamlit</b>
-            </div>
+          <div v-for = "item in items" class="collapse" :id="item.id.substring(1, item.id.length)">
+            <div class="card card-body" v-html = "item.description"></div>
           </div>
         </div>
       </div>
-    </div>
+        `
+      })
 
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a href="https://github.com/ernestkkb" class="fa fa-github nav-link active fa-3x" aria-current="page"
-          target="_blank"></a>
-      </li>
-      <li class="nav-item">
-        <a href="https://www.linkedin.com/in/ernest-khoo/" class="fa fa-linkedin nav-link fa-3x" aria-current="page"
-          target="_blank"></a>
-      </li>
-      <li class="nav-item">
-        <a href="https://www.facebook.com/ernest.k.boon/" class="fa fa-instagram nav-link fa-3x" aria-current="page"
-          target="_blank"></a>
-      </li>
-      <li>
-        <a href="mailto:ernestboon97@gmail.com" class="fa fa-envelope-square nav-link fa-3x" aria-current="page"
-          target="_blank"></a>
-      </li>
-    </ul>
+
+      app.component("internship-experience", {
+        props: ["items"],
+        template: `
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Internship Experiences</h5>
+          </div>
+          <p class="mb-1">
+          <ul>
+            <li v-for = "item in items">{{item.role}} - {{item.duration}}</li>
+          </ul>
+          </p>
+        </div>
+        `
+      })
+
+      app.component("card", {
+        props: ['category'],
+        template: `
+        <div class="card h-100" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{category.name}}</h5>
+                    <ul class="list-group list-group-flush">
+                      <li v-for = "skill in category.skills" class="list-group-item text-center">{{skill}}</li>
+                    </ul>
+                  </div>
+          </div>
+        `
+      })
+
+      app.component("personal", {
+        props: ['information'],
+        template: `
+        <div class="card h-100">
+            <img class="card-img-top" src="profile.jpg" alt="Ernest">
+            <div class="card-body">
+              <h5 class="card-title">{{information.name}}</h5>
+              <p class="card-text"><b>Education</b>: {{information.education}}</p>
+              <p class="card-text"><b>Hobbies</b>: {{information.hobbies}}</p>
+            </div>
+        </div>
+        `
+      })
+      app.mount('#app')
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"></script>
